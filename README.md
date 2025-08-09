@@ -13,7 +13,7 @@
 
 このように変換する関数。
 
-コードそのものは [Main.php](./blob/main/src/Utils/Main.php) に、テストコードは [MainTest.php](./blob/main/tests/Utils/MainTest.php) にある。
+コードそのものは [Main.php](./src/Utils/Main.php) に、テストコードは [MainTest.php](./tests/Utils/MainTest.php) にある。
 
 ## 依存ライブラリ
 なし。ComposerはPHPUnitを導入するためだけに使っている。
