@@ -1,0 +1,8 @@
+services:
+  test:
+    build:
+      context: .
+    volumes:
+      - ./src/:/app/src
+      - ./tests/:/app/tests
+    command: /app/vendor/bin/phpunit

@@ -1,0 +1,24 @@
+{
+    "name": "netebakari/explode_dot_array",
+    "description": "A simple PHP project with a static function and its test.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "netebakari",
+            "email": "itsumo.itsumo.nemui@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "netebakari\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "netebakari\\Tests\\": "tests/"
+        }
+    }
+}
