@@ -5,4 +5,5 @@ services:
     volumes:
       - ./src/:/app/src
       - ./tests/:/app/tests
-    command: /app/vendor/bin/phpunit
+    command: /app/vendor/bin/phpunit --display-phpunit-deprecations
+

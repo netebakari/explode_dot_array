@@ -91,6 +91,10 @@ class MainTest extends TestCase
                 ["a.b.X" => ["P", "Q"], "a.b" => ["X" => ["R", "S"]], "a" => ["b" => ["X" => "T"]]],
                 ["a" => ["b" => ["X" => ["P", "Q", "R", "S", "T"]]]]
             ],
+            "READMEDに書いているパターン" => [
+                ["a.b" => "P", "a" => ["b" => "Q"]],
+                ["a" => ["b" => ["P", "Q"]]]
+            ],
         ];
 
         foreach ($testData as $name => $data) {
@@ -98,5 +102,28 @@ class MainTest extends TestCase
             $this->assertSame($data[1], $result, "Test case: $name");
         }
     }
+
+    /**
+     * READMEに書いているパターン。すべて ["a" => ["b" => ["c" => ["d" => 1]]]] に展開される
+     */
+    public function testForDescriptionCases(): void
+    {
+        $testData = [
+            ["a.b.c.d" => 1],
+            ["a" => ["b.c.d" => 1]],
+            ["a.b" => ["c.d" => 1]],
+            ["a.b.c" => ["d" => 1]],
+            ["a" => ["b" => ["c.d" => 1]]],
+            ["a" => ["b.c" => ["d" => 1]]]
+        ];
+
+        foreach ($testData as $data) {
+            $shouldBe = ["a" => ["b" => ["c" => ["d" => 1]]]];
+            $result = Main::explode_dot_array($data);
+            $this->assertSame($shouldBe, $result);
+        }
+
+    }
+
 
 }
